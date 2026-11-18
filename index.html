@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070913"><meta name="description" content="Pawan Studio AI — create, clean and transform images.">
+<link rel="manifest" href="/manifest.json"><link rel="icon" href="/icon.svg">
+<title>Pawan Studio AI — Creative Studio</title>
+<style>
+:root{--bg:#070913;--panel:#11182c;--line:#29334d;--muted:#9aa8c2;--txt:#f7f8ff;--purple:#8b5cf6;--cyan:#22d3ee}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#34205c 0,transparent 34%),radial-gradient(ellipse at 95% 18%,#0b3b50 0,transparent 28%),var(--bg);color:var(--txt);font:15px/1.55 Inter,system-ui,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:5;background:#080b18ed;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.5px;display:flex;align-items:center;gap:10px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;font-weight:1000}.nav a{color:#bdc8dc;text-decoration:none;margin-left:18px;font-size:13px}.hero{text-align:center;padding:62px 0 36px}.pill{color:#c4b5fd;border:1px solid #8b5cf655;background:#8b5cf61b;padding:7px 13px;border-radius:99px;font-size:12px;font-weight:800}h1{font-size:clamp(38px,7vw,68px);line-height:1.04;letter-spacing:-2px;margin:22px auto 14px}.grad{background:linear-gradient(90deg,#c4b5fd,#67e8f9);background-clip:text;color:transparent}.hero p{color:var(--muted);max-width:680px;margin:auto;font-size:16px}.trust{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:#aab6cc;font-size:12px;margin-top:18px}.ad{height:52px;border:1px dashed #ffffff26;border-radius:13px;display:grid;place-items:center;color:#68758f;font-size:11px;margin:20px auto}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin:36px 0 16px;gap:12px}.section-head h2{margin:0;font-size:25px}.muted{color:var(--muted);font-size:13px;margin:4px 0}.badge{font-size:11px;color:#c4b5fd;border:1px solid #8b5cf655;border-radius:99px;padding:6px 10px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:linear-gradient(145deg,#161e35f2,#0d1428f2);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 18px 50px #0003;min-width:0}.wide{grid-column:1/-1}.card-head{display:flex;gap:12px;align-items:center;margin-bottom:15px}.ico{width:44px;height:44px;border-radius:14px;background:#8b5cf626;border:1px solid #ffffff16;display:grid;place-items:center;font-size:22px}.card h3{margin:0;font-size:17px}.sub{font-size:12px;color:var(--muted)}.tag{margin-left:auto;color:#86efac;background:#34d39914;border:1px solid #34d39933;padding:5px 8px;border-radius:99px;font-size:10px}
+.drop{min-height:112px;border:1px dashed #a78bfa88;background:#8b5cf60c;border-radius:14px;display:grid;place-items:center;text-align:center;padding:16px}.drop strong{display:block}.drop small{color:var(--muted)}input[type=file]{display:none}.pick{display:inline-block;margin-top:10px;padding:8px 12px;background:#8b5cf62a;border:1px solid #a78bfa55;border-radius:9px;font-size:12px;cursor:pointer}
+.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:750;font-size:13px}.primary{color:white;background:linear-gradient(100deg,#7c3aed,#2563eb)}.secondary{color:#e4e9f6;background:#ffffff0d;border:1px solid #ffffff20}.btn:disabled{opacity:.4;cursor:not-allowed}label{color:var(--muted);font-size:12px}input[type=range]{accent-color:#a78bfa;max-width:190px}textarea,select{background:#090f20;color:white;border:1px solid #ffffff20;border-radius:10px;padding:11px;width:100%;outline:none}textarea{min-height:85px;resize:vertical}.status{font-size:12px;color:var(--muted);min-height:20px}.error{color:#fca5a5}.ok{color:#86efac}.progress{height:5px;background:#29334d;border-radius:9px;overflow:hidden;margin:9px 0}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:width .2s}
+.compare{position:relative;display:none;overflow:hidden;margin-top:12px;border-radius:12px;background:repeating-conic-gradient(#26334b 0 25%,#111a2d 0 50%) 50%/20px 20px}.compare>img{display:block;width:100%;max-height:440px;object-fit:contain}.after{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 50% 0 0)}.after img{display:block;width:100%;height:100%;object-fit:contain}.canvasbox{display:none;position:relative;margin-top:12px}.canvasbox canvas{display:block;width:100%;height:auto;border-radius:12px;touch-action:none}.canvasbox canvas+canvas{position:absolute;inset:0;opacity:.62}.preview{display:none;overflow:hidden;border:1px solid var(--line);border-radius:13px;margin-top:12px;background:#0a1020}.preview img{display:block;width:100%;max-height:520px;object-fit:contain}.hint{font-size:11px;color:#7d8aa5}.info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 50px}.info div{border:1px solid var(--line);background:#ffffff08;padding:16px;border-radius:14px}.info p{font-size:12px;color:var(--muted);margin-bottom:0}footer{border-top:1px solid var(--line);padding:25px 0 40px;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.foot button{background:none;border:0;color:#b9c4d9;margin-right:12px;font-size:12px}dialog{background:#11182c;color:white;border:1px solid var(--line);border-radius:16px;width:min(620px,calc(100% - 24px));max-height:80vh;padding:22px}dialog p,dialog li{color:#c1cbe0;font-size:13px}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.close{float:right}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}.nav nav{display:none}.hero{padding:44px 0 25px}.card{padding:15px}.info{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+</style></head>
+<body>
+<header><div class="wrap nav"><div class="brand"><div class="logo">P</div> PAWAN STUDIO AI</div><nav><a href="#tools">AI Tools</a><a href="#guide">Guide</a><a href="#faq">FAQ</a></nav><button class="btn secondary" id="install" hidden>＋ Install App</button></div></header>
+<main class="wrap">
+<section class="hero"><span class="pill">✦ CREATIVE POWER, IN YOUR BROWSER</span><h1>Create beyond <span class="grad">imagination.</span></h1><p>Remove backgrounds, erase unwanted objects and generate stunning AI visuals. आपका क्रिएटिव स्टूडियो, अब आपकी जेब में।</p><div class="trust"><span>✓ Browser-side editing</span><span>✓ No account required</span><span>✓ Mobile-ready PWA</span></div></section>
+<!-- AD_SLOT_TOP --><div class="ad">ADVERTISEMENT</div>
+<section id="tools"><div class="section-head"><div><h2>✦ Creative Studio</h2><p class="muted">Choose a tool and turn your idea into reality.</p></div><span class="badge">3 CREATIVE TOOLS</span></div>
+<div class="grid">
+<article class="card"><div class="card-head"><div class="ico">✂️</div><div><h3>AI Background Remover</h3><div class="sub">One-click transparent PNG</div></div><span class="tag">ON DEVICE</span></div>
+<div class="drop" id="bgDrop"><div><strong>Drop your image here</strong><small>JPG · PNG · WebP</small><label class="pick" for="bgFile">Choose image</label><input id="bgFile" type="file" accept="image/*"></div></div>
+<div class="row"><button class="btn primary" id="bgRun" disabled>✦ Remove background</button><button class="btn secondary" id="bgSave" disabled>↓ Download PNG</button></div><div class="progress"><span id="bgBar"></span></div><div class="status" id="bgStatus">Choose an image to start.</div>
+<div class="compare" id="bgCompare"><img id="bgBefore" alt="Original image"><div class="after" id="bgAfterWrap"><img id="bgAfter" alt="Background removed"></div></div><input id="bgSlider" type="range" min="0" max="100" value="50" hidden aria-label="Before after comparison"><p class="hint">First run downloads the AI model. Processing uses your device memory and may take time.</p></article>
+<article class="card"><div class="card-head"><div class="ico">🪄</div><div><h3>Precision Magic Eraser</h3><div class="sub">Brush · Undo · Reset · Inpaint</div></div><span class="tag">LOCAL EDITOR</span></div>
+<div class="drop" id="erDrop"><div><strong>Select a photo to clean</strong><small>Paint over unwanted objects</small><label class="pick" for="erFile">Choose image</label><input id="erFile" type="file" accept="image/*"></div></div>
+<div class="row"><label>Brush size <input id="brush" type="range" min="8" max="90" value="30"></label><span class="status" id="brushVal">30 px</span></div>
+<div class="row"><button class="btn secondary" id="undo" disabled>↶ Undo</button><button class="btn secondary" id="reset" disabled>Reset mask</button><button class="btn primary" id="erase" disabled>✦ Erase selected</button><button class="btn secondary" id="erSave" disabled>↓ Save PNG</button></div>
+<div class="canvasbox" id="editor"><canvas id="photo"></canvas><canvas id="mask"></canvas></div><div class="progress"><span id="erBar"></span></div><div class="status" id="erStatus">Choose an image, then brush over the unwanted area.</div>
+<div class="compare" id="erCompare"><img id="erBefore" alt="Original photo"><div class="after" id="erAfterWrap"><img id="erAfter" alt="Edited photo"></div></div><input id="erSlider" type="range" min="0" max="100" value="50" hidden aria-label="Before after comparison"><p class="hint">This local inpainting is an approximation, not generative AI fill. Complex backgrounds can show artifacts.</p></article>
+<article class="card wide"><div class="card-head"><div class="ico">🌌</div><div><h3>AI Thumbnail & 3D Image Generator</h3><div class="sub">Turn a text prompt into visual art</div></div><span class="tag">TEXT TO IMAGE</span></div>
+<label for="prompt">Describe your image / अपनी कल्पना लिखें</label><textarea id="prompt" maxlength="900" placeholder="Epic cinematic 3D gaming thumbnail, futuristic sports car, neon purple and cyan lighting, dramatic composition, ultra detailed..."></textarea>
+<div class="row"><label for="ratio">Aspect ratio</label><select id="ratio" style="width:auto"><option value="16:9">16:9 · YouTube Thumbnail</option><option value="9:16">9:16 · Shorts / Reels</option><option value="1:1">1:1 · Square</option></select><button class="btn primary" id="generate">✦ Generate Image</button><button class="btn secondary" id="genSave" disabled>↓ Download</button></div>
+<div class="status" id="genStatus">Internet required. Public image provider availability and limits may change.</div><div class="preview" id="genPreview"><img id="genImg" alt="AI generated artwork"></div><p class="hint">The prompt is sent to Pollinations. Do not submit private or sensitive information.</p></article>
+</div></section>
+<div class="info" id="guide"><div><b>01 · Upload</b><p>Select an image from your device. Editing tools run locally in your browser.</p></div><div><b>02 · Create</b><p>Remove a background, paint an object mask or describe new artwork.</p></div><div><b>03 · Export</b><p>Compare the result and save a PNG to your device.</p></div></div>
+<!-- AD_SLOT_BOTTOM --><div class="ad">ADVERTISEMENT</div>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> Pawan Studio AI · Made for creators.</span><span><button data-modal="how">How to Use</button><button data-modal="faq">FAQ</button><button data-modal="about">About</button><button data-modal="privacy">Privacy</button><button data-modal="terms">Terms</button></span></div></footer>
+<dialog id="how"><button class="btn secondary close" data-close>Close ✕</button><h2>How to Use</h2><ol><li>Choose a tool and upload a photo.</li><li>Run background removal, or brush over an object and select Erase.</li><li>For generation, write a prompt and choose an aspect ratio.</li><li>Compare the result and download it.</li></ol></dialog>
+<dialog id="faq"><button class="btn secondary close" data-close>Close ✕</button><h2>FAQ</h2><h3>Is it free?</h3><p>The app code is free to use. Hosting and third-party AI providers may impose limits or charges depending on their current plans.</p><h3>Are my photos uploaded to this server?</h3><p>No. This Flask app has no image upload endpoint. Editing runs in your browser. Image generation sends your prompt to Pollinations.</p><h3>Why is AI slow?</h3><p>Model downloads, device memory and provider load affect speed.</p><h3>Does erasing always look perfect?</h3><p>No. This tool uses classical local inpainting and may leave artifacts.</p></dialog>
+<dialog id="about"><button class="btn secondary close" data-close>Close ✕</button><h2>About Pawan Studio AI</h2><p>An independent browser-first creative studio for image editing and AI artwork.</p></dialog>
+<dialog id="privacy"><button class="btn secondary close" data-close>Close ✕</button><h2>Privacy Policy</h2><p>Photos selected for background removal and erasing are processed in your browser and are not uploaded to or stored by this Flask server. Background-removal code and model files are downloaded from third-party CDN/model hosts. Image generation sends your prompt to Pollinations, whose own privacy terms apply. If advertising is enabled, ad providers may use their own cookies or tracking. Review provider policies before launch.</p></dialog>
+<dialog id="terms"><button class="btn secondary close" data-close>Close ✕</button><h2>Terms of Use</h2><p>Use only content you have rights to edit. You are responsible for reviewing outputs, respecting privacy and intellectual-property rights, and complying with applicable laws. Features and third-party services are provided as-is and may change or become unavailable.</p></dialog>
+<script type="module">
+const $=id=>document.getElementById(id);
+const status=(id,msg,kind="")=>{$(id).textContent=msg;$(id).className="status "+kind};
+const bar=(id,n)=>$(id).style.width=Math.max(0,Math.min(100,n))+"%";
+const save=(blob,name)=>{const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),15000)};
+const toBlob=c=>new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error("Could not export image")),"image/png"));
+const loadImage=file=>new Promise((resolve,reject)=>{const url=URL.createObjectURL(file),im=new Image();im.onload=()=>resolve({im,url});im.onerror=()=>reject(Error("Could not open image"));im.src=url});
+function wireDrop(zone,input,fn){zone.addEventListener("dragover",e=>{e.preventDefault();zone.style.borderColor="#c4b5fd"});zone.addEventListener("dragleave",()=>zone.style.borderColor="");zone.addEventListener("drop",e=>{e.preventDefault();zone.style.borderColor="";if(e.dataTransfer.files[0])fn(e.dataTransfer.files[0])});input.addEventListener("change",()=>{if(input.files[0])fn(input.files[0])})}
+function setCompare(prefix,beforeUrl,afterUrl){$(prefix+"Before").src=beforeUrl;$(prefix+"After").src=afterUrl;$(prefix+"AfterWrap").style.clipPath="inset(0 50% 0 0)";$(prefix+"Compare").style.display="block";const s=$(prefix+"Slider");s.hidden=false;s.value=50;s.oninput=()=>$(prefix+"AfterWrap").style.clipPath=`inset(0 ${100-s.value}% 0 0)`}
+$("year").textContent=new Date().getFullYear();
+document.querySelectorAll("[data-modal]").forEach(b=>b.onclick=()=>$(b.dataset.modal).showModal());
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>b.closest("dialog").close());
+let installPrompt;
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;$("install").hidden=false});
+$("install").onclick=async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;$("install").hidden=true}};
+if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(console.warn));
+
+// Background removal (IMG.LY runs in the visitor's browser)
+let bgOriginalUrl=null,bgResultBlob=null,bgResultUrl=null,bgModule=null;
+wireDrop($("bgDrop"),$("bgFile"),async file=>{try{const x=await loadImage(file);if(bgOriginalUrl)URL.revokeObjectURL(bgOriginalUrl);bgOriginalUrl=x.url;$("bgBefore").src=x.url;$("bgAfter").src=x.url;$("bgCompare").style.display="block";$("bgSlider").hidden=true;$("bgRun").disabled=false;$("bgSave").disabled=true;status("bgStatus","Image ready. Click Remove background.")}catch(e){status("bgStatus",e.message,"error")}});
+$("bgRun").onclick=async()=>{if(!bgOriginalUrl)return;$("bgRun").disabled=true;bar("bgBar",2);status("bgStatus","Loading AI engine and model…");
+try{
+ bgModule??=await import("https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm");
+ const remove=bgModule.removeBackground||bgModule.default?.removeBackground||bgModule.default;
+ if(typeof remove!=="function")throw Error("Background-removal module did not load");
+ const source=await(await fetch(bgOriginalUrl)).blob();
+ bgResultBlob=await remove(source,{progress:(name,current,total)=>{if(total){const p=current/total*100;bar("bgBar",p);status("bgStatus",`Loading ${name||"model"} · ${Math.round(p)}%`)}}});
+ if(bgResultUrl)URL.revokeObjectURL(bgResultUrl);bgResultUrl=URL.createObjectURL(bgResultBlob);
+ $("bgAfter").src=bgResultUrl;$("bgSave").disabled=false;$("bgSlider").hidden=false;bar("bgBar",100);status("bgStatus","Background removed. Transparent PNG is ready.","ok");
+}catch(e){console.error(e);status("bgStatus","Could not remove background: "+e.message,"error")}
+finally{$("bgRun").disabled=false}};
+$("bgSave").onclick=()=>bgResultBlob&&save(bgResultBlob,"pawan-background-removed.png");
+
+// Brush editor and local diffusion-style inpainting approximation
+const photo=$("photo"),mask=$("mask"),pctx=photo.getContext("2d",{willReadFrequently:true}),mctx=mask.getContext("2d",{willReadFrequently:true});
+let erImage=null,erOriginalUrl=null,undoStack=[],drawing=false,lastPoint=null,erResultBlob=null;
+function setupEditor(im){const scale=Math.min(1,1100/Math.max(im.naturalWidth,im.naturalHeight));photo.width=mask.width=Math.max(1,Math.round(im.naturalWidth*scale));photo.height=mask.height=Math.max(1,Math.round(im.naturalHeight*scale));pctx.clearRect(0,0,photo.width,photo.height);pctx.drawImage(im,0,0,photo.width,photo.height);mctx.clearRect(0,0,mask.width,mask.height);undoStack=[];$("editor").style.display="block";$("undo").disabled=true;$("reset").disabled=false;$("erase").disabled=false;$("erSave").disabled=true;$("erCompare").style.display="none";$("erSlider").hidden=true}
+wireDrop($("erDrop"),$("erFile"),async file=>{try{const x=await loadImage(file);erImage=x.im;erOriginalUrl=x.url;setupEditor(erImage);status("erStatus","Brush over the object. Red overlay is the selected area.")}catch(e){status("erStatus",e.message,"error")}});
+$("brush").oninput=()=>$("brushVal").textContent=$("brush").value+" px";
+function point(e){const r=mask.getBoundingClientRect();return{x:(e.clientX-r.left)*mask.width/r.width,y:(e.clientY-r.top)*mask.height/r.height}}
+function paint(a,b){mctx.strokeStyle="rgba(255,35,80,.95)";mctx.lineWidth=Number($("brush").value)*mask.width/mask.getBoundingClientRect().width;mctx.lineCap="round";mctx.lineJoin="round";mctx.beginPath();mctx.moveTo(a.x,a.y);mctx.lineTo(b.x,b.y);mctx.stroke()}
+mask.addEventListener("pointerdown",e=>{if(!erImage)return;drawing=true;mask.setPointerCapture(e.pointerId);undoStack.push(mctx.getImageData(0,0,mask.width,mask.height));lastPoint=point(e);paint(lastPoint,lastPoint);$("undo").disabled=false});
+mask.addEventListener("pointermove",e=>{if(drawing){const p=point(e);paint(lastPoint,p);lastPoint=p}});
+["pointerup","pointercancel","lostpointercapture"].forEach(t=>mask.addEventListener(t,()=>drawing=false));
+$("undo").onclick=()=>{if(undoStack.length)mctx.putImageData(undoStack.pop(),0,0);$("undo").disabled=!undoStack.length};
+$("reset").onclick=()=>{mctx.clearRect(0,0,mask.width,mask.height);undoStack=[];$("undo").disabled=true};
+function inpaint(source,maskImage,progress){
+ const w=source.width,h=source.height,src=source.data,md=maskImage.data,out=new Uint8ClampedArray(src),marked=new Uint8Array(w*h),known=new Uint8Array(w*h);
+ let markedCount=0;for(let i=0;i<w*h;i++){marked[i]=md[i*4+3]>12?1:0;if(marked[i])markedCount++;else known[i]=1}
+ if(!markedCount)throw Error("Paint over the area you want to remove first");
+ // Expand the mask slightly so the selected object's boundary is covered.
+ const expanded=new Uint8Array(marked);
+ for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=y*w+x;if(marked[i]){expanded[i]=expanded[i-1]=expanded[i+1]=expanded[i-w]=expanded[i+w]=1}}
+ let remaining=0;for(let i=0;i<w*h;i++)if(expanded[i]){known[i]=0;remaining++}
+ const dirs=[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,-1],[-1,1],[1,1]];
+ let rounds=0,maxRounds=Math.min(120,Math.max(30,Math.ceil(Math.sqrt(w*h)*.25)));
+ while(remaining&&rounds<maxRounds){
+  const updates=[];
+  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=y*w+x;if(known[i])continue;let rr=0,gg=0,bb=0,n=0;
+   for(const [dx,dy] of dirs){const j=(y+dy)*w+x+dx;if(known[j]){rr+=out[j*4];gg+=out[j*4+1];bb+=out[j*4+2];n++}}
+   if(n)updates.push([i,rr/n,gg/n,bb/n]);
+  }
+  if(!updates.length)break;
+  for(const [i,r,g,b] of updates){out[i*4]=r;out[i*4+1]=g;out[i*4+2]=b;known[i]=1;remaining--}
+  rounds++;if(rounds%4===0)progress(Math.round((1-remaining/(w*h))*65));
+ }
+ // Smooth the fill boundary with several neighborhood passes.
+ for(let pass=0;pass<12;pass++){const next=new Uint8ClampedArray(out);
+  for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=y*w+x;if(!expanded[i])continue;
+   for(let c=0;c<3;c++){let sum=0;for(const [dx,dy] of dirs)sum+=out[((y+dy)*w+x+dx)*4+c];next[i*4+c]=out[i*4+c]*.35+(sum/8)*.65}
+  }out.set(next);progress(65+pass*2);
+ }
+ return new ImageData(out,w,h);
+}
+$("erase").onclick=async()=>{if(!erImage)return;$("erase").disabled=true;bar("erBar",0);status("erStatus","Removing selected area…");
+try{await new Promise(r=>setTimeout(r,25));const result=inpaint(pctx.getImageData(0,0,photo.width,photo.height),mctx.getImageData(0,0,mask.width,mask.height),n=>bar("erBar",n));pctx.putImageData(result,0,0);erResultBlob=await toBlob(photo);
+ const originalCanvas=document.createElement("canvas");originalCanvas.width=photo.width;originalCanvas.height=photo.height;originalCanvas.getContext("2d").drawImage(erImage,0,0,photo.width,photo.height);
+ const editedUrl=URL.createObjectURL(erResultBlob);setCompare("er",originalCanvas.toDataURL("image/png"),editedUrl);$("editor").style.display="none";$("erSave").disabled=false;bar("erBar",100);status("erStatus","Finished. Compare and download your PNG.","ok");
+}catch(e){status("erStatus",e.message,"error")}finally{$("erase").disabled=false}};
+$("erSave").onclick=()=>erResultBlob&&save(erResultBlob,"pawan-magic-eraser.png");
+
+// Prompt-to-image endpoint
+let generatedBlob=null,generatedUrl=null;
+$("generate").onclick=async()=>{const prompt=$("prompt").value.trim();if(!prompt){status("genStatus","Please enter an image prompt.","error");return}
+ const [rw,rh]=$("ratio").value.split(":").map(Number);let width=1024,height=Math.round(1024*rh/rw);if(rw<rh){height=1024;width=Math.round(1024*rw/rh)}
+ const seed=Math.floor(Math.random()*1e9);const url=`https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?model=flux&width=${width}&height=${height}&seed=${seed}&nologo=true`;
+ $("generate").disabled=true;$("genSave").disabled=true;$("generate").textContent="Generating…";status("genStatus",`Generating artwork · seed ${seed} · please wait…`);
+ try{const response=await fetch(url);if(!response.ok)throw Error("Image provider returned HTTP "+response.status);const blob=await response.blob();if(!blob.type.startsWith("image/"))throw Error("Provider did not return an image");
+  generatedBlob=blob;if(generatedUrl)URL.revokeObjectURL(generatedUrl);generatedUrl=URL.createObjectURL(blob);$("genImg").src=generatedUrl;$("genPreview").style.display="block";$("genSave").disabled=false;status("genStatus",`Artwork ready · ${width} × ${height}`,"ok");
+ }catch(e){status("genStatus","Generation unavailable: "+e.message+". Try again later.","error")}
+ finally{$("generate").disabled=false;$("generate").textContent="✦ Generate Image"}};
+$("genSave").onclick=()=>generatedBlob&&save(generatedBlob,"pawan-ai-artwork.png");
+</script></body></html>
